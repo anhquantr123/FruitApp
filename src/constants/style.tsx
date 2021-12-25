@@ -2,6 +2,7 @@ export const COLORS = {
   primaryColor: "#ffa451",
   successColor: "#4CD964",
   inputColor: "#F3F1F1",
+  colorWhite: "#FFF",
 };
 
 export const FONTS = {

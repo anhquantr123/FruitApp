@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { SCREENS } from "./src/constants/screenDefault";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SCREENS.SplashScreen />
-      <StatusBar barStyle="default" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Splash"
+      >
+        <Stack.Screen name="Splash" component={SCREENS.SplashScreen} />
+        <Stack.Screen name="Welcome" component={SCREENS.WelcomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});
