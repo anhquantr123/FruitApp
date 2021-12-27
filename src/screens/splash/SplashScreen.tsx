@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 import { COLORS, FONTS, THEMES } from "../../constants/style";
+import * as Animatable from "react-native-animatable";
 //import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = ({ navigation }: any) => {
@@ -13,12 +14,16 @@ const SplashScreen = ({ navigation }: any) => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        style={styles.imgLogo}
-        source={require("../../../assets/images/logo.png")}
-      ></Image>
+      <Animatable.View animation={"bounceIn"} duration={1500}>
+        <Image
+          style={styles.imgLogo}
+          source={require("../../../assets/images/logo.png")}
+        ></Image>
+      </Animatable.View>
       <View style={styles.backgroundTitle}>
-        <Text style={styles.title}>Fruit App</Text>
+        <Animatable.Text animation={"bounceInDown"} style={styles.title}>
+          Fruit App
+        </Animatable.Text>
       </View>
     </SafeAreaView>
   );
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
   },
-  imgLogo: { marginLeft: 15, top: -20 },
+  imgLogo: { alignSelf: "center", top: -20 },
   backgroundTitle: {
     minWidth: "40%",
     minHeight: 30,

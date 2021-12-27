@@ -1,38 +1,43 @@
 import React from "react";
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
   StatusBar,
   Image,
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import RadiusButton from "../../components/RadiusButton";
-import { COLORS, FONTS, THEMES } from "../../constants/style";
 
-const WelcomeScreen = ({ navigation }: any) => {
+import { COLORS, FONTS, THEMES } from "../../constants/style";
+import RadiusButton from "../../components/RadiusButton";
+import { TextInput } from "react-native-gesture-handler";
+
+const AuthenScreen = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewer}>
         <Image
-          source={require("../../../assets/images/imageWelcome.png")}
+          source={require("../../../assets/images/imageAuthen.png")}
         ></Image>
       </View>
       {/* content */}
       <View style={styles.content}>
-        <Text style={styles.textTitle}>Get The Freshest Fruit Salad Combo</Text>
-        <Text>
-          We deliver the best and freshest fruit salad in town. Order for a
-          combo today!!!
-        </Text>
+        <Text style={styles.textTitle}>What is your firstname?</Text>
+        <TextInput
+          placeholder="Thuy Trang"
+          style={{
+            borderRadius: THEMES.radius,
+            backgroundColor: "#f3f1f1",
+            padding: 10,
+          }}
+        />
       </View>
       {/* button  */}
       <View style={styles.button}>
         <RadiusButton
-          text={"Let's Continue"}
+          text={"Start Ordering"}
           onPress={() => {
-            navigation.replace("Authen");
+            navigation.replace("Home");
           }}
         />
       </View>
@@ -40,12 +45,13 @@ const WelcomeScreen = ({ navigation }: any) => {
   );
 };
 
-export default WelcomeScreen;
+export default AuthenScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    backgroundColor: COLORS.backgroundColor,
   },
   viewer: {
     flex: 5,

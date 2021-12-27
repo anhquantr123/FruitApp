@@ -5,10 +5,11 @@ import { COLORS, FONTS, THEMES } from "../constants/style";
 
 type radiusButton = {
   text?: String;
+  onPress: Function;
 };
-const RadiusButton = ({ text }: radiusButton) => {
+const RadiusButton = ({ text, onPress }: radiusButton) => {
   return (
-    <TouchableOpacity style={styles.backgroundButton}>
+    <TouchableOpacity style={styles.backgroundButton} onPress={() => onPress()}>
       <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>
   );
