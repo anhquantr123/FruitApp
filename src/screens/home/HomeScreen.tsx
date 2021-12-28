@@ -1,8 +1,9 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text } from "react-native";
 import { COLORS, FONTS, THEMES } from "../../constants/style";
 import Appbar from "./components/Appbar";
 import Input from "./components/Input";
+import Recommended from "./components/Recommended";
 
 const HomeScreen = () => {
   return (
@@ -15,6 +16,8 @@ const HomeScreen = () => {
       </Text>
       {/* input  */}
       <Input />
+      {/* recommended combo */}
+      <Recommended />
     </SafeAreaView>
   );
 };
