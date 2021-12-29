@@ -1,3 +1,4 @@
+import DetailProduct from "../screens/detail_product/DetailProduct";
 import HomeScreen from "../screens/home/HomeScreen";
 import AuthenScreen from "../screens/splash/AuthenScreen";
 import SplashScreen from "../screens/splash/SplashScreen";
@@ -8,4 +9,5 @@ export const SCREENS = {
   HomeScreen,
   WelcomeScreen,
   AuthenScreen,
+  DetailProduct,
 };

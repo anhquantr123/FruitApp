@@ -13,6 +13,7 @@ const StackNav = () => {
       <Stack.Screen name="Welcome" component={SCREENS.WelcomeScreen} />
       <Stack.Screen name="Authen" component={SCREENS.AuthenScreen} />
       <Stack.Screen name="Home" component={SCREENS.HomeScreen} />
+      <Stack.Screen name="DetailProduct" component={SCREENS.DetailProduct} />
     </Stack.Navigator>
   );
 };

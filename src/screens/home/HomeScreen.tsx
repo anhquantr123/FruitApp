@@ -4,8 +4,9 @@ import { COLORS, FONTS, THEMES } from "../../constants/style";
 import Appbar from "./components/Appbar";
 import Input from "./components/Input";
 import Recommended from "./components/Recommended";
+import TapMenu from "./components/TapMenu";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Appbar */}
@@ -17,7 +18,9 @@ const HomeScreen = () => {
       {/* input  */}
       <Input />
       {/* recommended combo */}
-      <Recommended />
+      <Recommended navigation={navigation} />
+      {/* tap menu  */}
+      <TapMenu navigation={navigation} />
     </SafeAreaView>
   );
 };

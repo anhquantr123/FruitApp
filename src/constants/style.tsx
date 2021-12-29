@@ -14,5 +14,5 @@ export const FONTS = {
 
 export const THEMES = {
   radius: 15.0,
-  padding: 10.0,
+  padding: 8.0,
 };
