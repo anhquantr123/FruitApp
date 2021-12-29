@@ -17,6 +17,7 @@ const Recommended = ({ navigation }: any) => {
   const renderItem = ({ item }: any) => (
     <TouchableOpacity onPress={() => handleClickProduct(item)}>
       <ItemProduct
+        id={item.id}
         title={item.title}
         image={item.image}
         description={item.description}

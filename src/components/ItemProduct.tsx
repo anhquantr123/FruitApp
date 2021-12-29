@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { COLORS, THEMES } from "../constants/style";
 import LikeIcon from "../icons/LikeIcon";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../stores/actions/actionCar";
+import { ADD_TO_CART } from "../stores/actions/actionTypes";
 
 type product = {
+  id: number;
   image: any;
   title: String;
   price: number;
@@ -13,6 +17,8 @@ type product = {
 
 const ItemProduct = (props: product) => {
   const [isLike, setIsLike] = useState(props.isLike);
+  const cart = useSelector((state: RootStateOrAny) => state.cartReducer.carts);
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.itemProductContainer}>
@@ -40,7 +46,7 @@ const ItemProduct = (props: product) => {
         <TouchableOpacity
           onPress={(e) => {
             e.stopPropagation();
-            console.log("you click add ");
+            dispatch(addToCart({ ...props, quantily: 1 }));
           }}
         >
           <Image source={require("../../assets/icons/add.png")}></Image>
