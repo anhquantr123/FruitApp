@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,8 +11,12 @@ import {
 import { COLORS, FONTS, THEMES } from "../../constants/style";
 import RadiusButton from "../../components/RadiusButton";
 import { TextInput } from "react-native-gesture-handler";
+import { useDispatch } from "react-redux";
+import { setName } from "../../stores/actions/actionApp";
 
 const AuthenScreen = ({ navigation }: any) => {
+  const [valueName, setValueName] = useState(String);
+  const dispatch = useDispatch();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewer}>
@@ -24,7 +28,9 @@ const AuthenScreen = ({ navigation }: any) => {
       <View style={styles.content}>
         <Text style={styles.textTitle}>What is your firstname?</Text>
         <TextInput
-          placeholder="Thuy Trang"
+          value={valueName}
+          placeholder="Input name...."
+          onChangeText={(text) => setValueName(text)}
           style={{
             borderRadius: THEMES.radius,
             backgroundColor: "#f3f1f1",
@@ -37,6 +43,7 @@ const AuthenScreen = ({ navigation }: any) => {
         <RadiusButton
           text={"Start Ordering"}
           onPress={() => {
+            dispatch(setName({ nameUser: valueName }));
             navigation.replace("Home");
           }}
         />

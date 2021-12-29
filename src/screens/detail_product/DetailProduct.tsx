@@ -32,7 +32,7 @@ const DetailProduct = ({ navigation, route }: any) => {
       <View style={styles.detailProduct}>
         {/*  title product  */}
         <Text style={styles.textTitle}>{product.title}</Text>
-        {/* change product  */}
+        {/* change quantily product in cart   */}
         <View style={[styles.flexRow, { justifyContent: "space-between" }]}>
           <View style={styles.flexRow}>
             <TouchableOpacity>
@@ -42,7 +42,7 @@ const DetailProduct = ({ navigation, route }: any) => {
             </TouchableOpacity>
 
             <Text style={styles.textQuantily}>1</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {}}>
               <Image source={require("../../../assets/icons/plus.png")}></Image>
             </TouchableOpacity>
           </View>

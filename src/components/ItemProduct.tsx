@@ -17,7 +17,7 @@ type product = {
 
 const ItemProduct = (props: product) => {
   const [isLike, setIsLike] = useState(props.isLike);
-  const cart = useSelector((state: RootStateOrAny) => state.cartReducer.carts);
+
   const dispatch = useDispatch();
 
   return (

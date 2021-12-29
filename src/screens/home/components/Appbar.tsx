@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLORS } from "../../../constants/style";
 import { RootStateOrAny, useSelector } from "react-redux";
+import { COLORS } from "../../../constants/style";
 
-const Appbar = () => {
+const Appbar = ({ navigation }: any) => {
   const state = useSelector(
     (state: RootStateOrAny) => state.cartReducer.totalQuantily
   );
@@ -12,7 +12,7 @@ const Appbar = () => {
   return (
     <View style={styles.containerAppbar}>
       {/* drawer menu */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => {}}>
         <Image
           source={require("../../../../assets/icons/drawerMenu.png")}
         ></Image>
@@ -25,9 +25,11 @@ const Appbar = () => {
             source={require("../../../../assets/icons/bagket.png")}
           ></Image>
         </TouchableOpacity>
-        <View style={styles.bagIcon}>
-          <Text style={styles.textBagIcon}>{state}c</Text>
-        </View>
+        {state === 0 ? null : (
+          <View style={styles.bagIcon}>
+            <Text style={styles.textBagIcon}>{state}</Text>
+          </View>
+        )}
       </View>
       {/* bag icon  */}
     </View>

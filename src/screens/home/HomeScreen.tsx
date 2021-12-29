@@ -5,15 +5,20 @@ import Appbar from "./components/Appbar";
 import Input from "./components/Input";
 import Recommended from "./components/Recommended";
 import TapMenu from "./components/TapMenu";
+import { RootStateOrAny, useSelector } from "react-redux";
 
 const HomeScreen = ({ navigation }: any) => {
+  const nameUser = useSelector(
+    (state: RootStateOrAny) => state.appReducer.nameUser
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Appbar */}
-      <Appbar />
+      <Appbar navigation={navigation} />
       {/* HeadingTitle  */}
       <Text style={styles.headingTitle}>
-        Hello Thuy Trang, what fruit salad combo do you want today?
+        Hello {nameUser}, what fruit salad combo do you want today?
       </Text>
       {/* input  */}
       <Input />
