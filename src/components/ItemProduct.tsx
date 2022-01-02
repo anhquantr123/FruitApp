@@ -36,7 +36,9 @@ const ItemProduct = (props: product) => {
       {/* image produc */}
       <Image source={props.image} style={styles.image}></Image>
       {/* title product  */}
-      <Text style={styles.textTitle}>{props.title}</Text>
+      <Text numberOfLines={2} ellipsizeMode="tail" style={styles.textTitle}>
+        {props.title}
+      </Text>
       <View style={styles.flexRow}>
         {/* text price product  */}
         <Text style={styles.textPrice}>
@@ -44,6 +46,7 @@ const ItemProduct = (props: product) => {
         </Text>
         {/* button add product  */}
         <TouchableOpacity
+          style={{ alignSelf: "flex-end" }}
           onPress={(e) => {
             e.stopPropagation();
             dispatch(addToCart({ ...props, quantily: 1 }));
@@ -64,16 +67,16 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: COLORS.backgroundColor,
     width: 152,
-    height: 183,
+    height: 190,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.4,
-    shadowRadius: 16.0,
+    shadowOpacity: 0.5,
+    shadowRadius: 5.0,
 
-    elevation: 5,
+    elevation: 1,
     marginRight: 10,
     borderRadius: THEMES.radius,
   },
@@ -89,16 +92,17 @@ const styles = StyleSheet.create({
   textTitle: {
     fontWeight: "bold",
     //alignSelf: "center",
-    marginVertical: 5,
   },
   flexRow: {
+    flex: 1,
     flexDirection: "row",
     marginTop: 5,
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   textPrice: {
     color: COLORS.primaryColor,
     fontSize: 15,
+    alignSelf: "flex-end",
   },
 });

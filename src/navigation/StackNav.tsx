@@ -14,6 +14,7 @@ const StackNav = () => {
       <Stack.Screen name="Authen" component={SCREENS.AuthenScreen} />
       <Stack.Screen name="Home" component={SCREENS.HomeScreen} />
       <Stack.Screen name="DetailProduct" component={SCREENS.DetailProduct} />
+      <Stack.Screen name="Cart" component={SCREENS.CartScreen} />
     </Stack.Navigator>
   );
 };

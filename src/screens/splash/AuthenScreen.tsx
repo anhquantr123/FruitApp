@@ -30,7 +30,10 @@ const AuthenScreen = ({ navigation }: any) => {
         <TextInput
           value={valueName}
           placeholder="Input name...."
-          onChangeText={(text) => setValueName(text)}
+          onChangeText={(text) => {
+            setValueName(text);
+            dispatch(setName({ nameUser: text }));
+          }}
           style={{
             borderRadius: THEMES.radius,
             backgroundColor: "#f3f1f1",
@@ -43,7 +46,6 @@ const AuthenScreen = ({ navigation }: any) => {
         <RadiusButton
           text={"Start Ordering"}
           onPress={() => {
-            dispatch(setName({ nameUser: valueName }));
             navigation.replace("Home");
           }}
         />

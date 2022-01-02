@@ -1,3 +1,4 @@
+import CartScreen from "../screens/cart/CartScreen";
 import DetailProduct from "../screens/detail_product/DetailProduct";
 import HomeScreen from "../screens/home/HomeScreen";
 import AuthenScreen from "../screens/splash/AuthenScreen";
@@ -10,4 +11,5 @@ export const SCREENS = {
   WelcomeScreen,
   AuthenScreen,
   DetailProduct,
+  CartScreen,
 };

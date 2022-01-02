@@ -5,7 +5,7 @@ const appReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_NAME_USER: {
       if (
-        action.payload.nameUser != undefined ||
+        action.payload.nameUser != undefined &&
         action.payload.nameUser != null
       ) {
         return {

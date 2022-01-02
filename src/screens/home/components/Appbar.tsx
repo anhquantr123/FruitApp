@@ -20,7 +20,11 @@ const Appbar = ({ navigation }: any) => {
 
       {/* button basket */}
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Cart");
+          }}
+        >
           <Image
             source={require("../../../../assets/icons/bagket.png")}
           ></Image>
@@ -52,9 +56,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 15,
     left: 13,
-    top: -5,
-    borderWidth: 1,
-    borderColor: COLORS.colorWhite,
+    bottom: 15,
   },
   textBagIcon: {
     flex: 1,
@@ -62,5 +64,6 @@ const styles = StyleSheet.create({
     color: COLORS.colorWhite,
     fontWeight: "bold",
     alignSelf: "center",
+    justifyContent: "center",
   },
 });

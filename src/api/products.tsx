@@ -18,7 +18,7 @@ const Products = [
   {
     id: 3,
     isLike: false,
-    title: "Honey Lime Combo",
+    title: "Honey lime combo",
     price: 135000,
     image: require("../../assets/images/product1.png"),
     description: "",
@@ -26,7 +26,7 @@ const Products = [
   {
     id: 4,
     isLike: false,
-    title: "Honey Lime Combo",
+    title: "Honey lime combo",
     price: 165000,
     image: require("../../assets/images/product1.png"),
     description: "",
