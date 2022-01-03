@@ -34,6 +34,7 @@ export default AppBar;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: COLORS.primaryColor,
     padding: THEMES.padding,
     paddingVertical: 20,
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.colorWhite,
     borderRadius: THEMES.radius,
     flexDirection: "row",
-
     margin: 10,
   },
   textTitle: {

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch } from "react-redux";
 import { COLORS, THEMES } from "../constants/style";
 import LikeIcon from "../icons/LikeIcon";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../stores/actions/actionCar";
-import { ADD_TO_CART } from "../stores/actions/actionTypes";
 
 type product = {
   id: number;

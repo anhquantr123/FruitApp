@@ -1,14 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS, THEMES } from "../../constants/style";
 import { Ionicons } from "@expo/vector-icons";
 import RadiusButton from "../../components/RadiusButton";
 import LikeIcon from "../../icons/LikeIcon";
+import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../stores/actions/actionCar";
 
 const DetailProduct = ({ navigation, route }: any) => {
   const product = route.params.product;
+  const dispatch = useDispatch();
   const [isLike, setIsLike] = useState(product.isLike);
+  const [isExit, setIsExit] = useState(false);
+  const [quantilyProduct, setQuantilyProduct] = useState(1);
+  const cartStore = useSelector(
+    (state: RootStateOrAny) => state.cartReducer.carts
+  );
+
+  console.log(product);
+  // check product isExit in cart
+
+  useEffect(() => {
+    cartStore.forEach((e: any) => {
+      if (e.id === product.id) {
+        setIsExit(true);
+        setQuantilyProduct(e.quantily);
+      }
+    });
+  }, [quantilyProduct]);
+
+  // handle click btn
+  const handleClickbtn = () => {
+    if (isExit) {
+      navigation.navigate("Cart");
+    } else {
+      dispatch(addToCart({ ...product, quantily: quantilyProduct }));
+    }
+  };
+
+  // handleclick increase quantily product
+  const handleClickIncreaseQuantily = () => {
+    if (isExit) {
+      setQuantilyProduct((prev) => prev + 1);
+      dispatch(addToCart({ ...product, quantily: 1 }));
+    } else {
+      setQuantilyProduct((prev) => prev + 1);
+    }
+  };
+
+  //handleClick decrease quantily product
+  const handleClickDecreaseQuantily = () => {
+    if (isExit) {
+      setQuantilyProduct((prev) => prev - 1);
+      dispatch(addToCart({ ...product, quantily: -1 }));
+    } else {
+      setQuantilyProduct((prev) => prev - 1);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {/* go back button  */}
@@ -35,14 +85,14 @@ const DetailProduct = ({ navigation, route }: any) => {
         {/* change quantily product in cart   */}
         <View style={[styles.flexRow, { justifyContent: "space-between" }]}>
           <View style={styles.flexRow}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleClickDecreaseQuantily}>
               <Image
                 source={require("../../../assets/icons/minus.png")}
               ></Image>
             </TouchableOpacity>
 
-            <Text style={styles.textQuantily}>1</Text>
-            <TouchableOpacity onPress={() => {}}>
+            <Text style={styles.textQuantily}>{quantilyProduct}</Text>
+            <TouchableOpacity onPress={handleClickIncreaseQuantily}>
               <Image source={require("../../../assets/icons/plus.png")}></Image>
             </TouchableOpacity>
           </View>
@@ -63,7 +113,10 @@ const DetailProduct = ({ navigation, route }: any) => {
               <LikeIcon isLike={isLike} size={36} />
             </TouchableOpacity>
             <View style={{ flex: 1 }}>
-              <RadiusButton text={"Add to basket"} onPress={() => {}} />
+              <RadiusButton
+                text={isExit ? "Go to basket " : "Add to basket"}
+                onPress={handleClickbtn}
+              />
             </View>
           </View>
         </View>

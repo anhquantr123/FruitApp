@@ -5,7 +5,6 @@ import configStore from "./src/stores/combieStores/store";
 
 const store = configStore();
 export default function App() {
-  console.log(store.getState());
   return (
     <Provider store={store}>
       <NavigationContainer>
